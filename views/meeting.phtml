@@ -1,0 +1,13 @@
+    <ul style="list-style: none;">
+        <?php foreach ($Meetings as $meeting): /** @var \Meeting\Entity\Meeting $meeting */ ?>
+            <div style=" border: 2px solid royalblue; background: gainsboro; margin: 10px auto; padding: 5px;">
+                <li><h3>Titre : <?= $meeting->getTitre(); ?></h3></li>
+                <li>Date de Debut : <?= $meeting->getStartDate()->format('d-m-Y H:i:s'); ?></li>
+                <li>Date de fin : <?= $meeting->getEndDate()->format('d-m-Y H:i:s'); ?></li>
+                <li>Description : <?= $meeting->getDesc(); ?></li>
+                <li style="color: indianred;">De le Communaute : <?= $meeting->getCommunaute()->getName(); ?></li>
+                <li><a href="/meeting/<?= $meeting->getId(); ?>"><button>Voir</button></a></li>
+            </div>
+        <?php endforeach; ?>
+    </ul>
+

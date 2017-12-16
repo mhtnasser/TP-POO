@@ -20,6 +20,12 @@ use Cinema\Factory\FilmControllerFactory;
 use Cinema\Factory\FilmRepositoryFactory;
 use Cinema\Factory\ShowFilmControllerFactory;
 use Cinema\Repository\FilmRepository;
+use Meeting\Controller\MeetingController;
+use Meeting\Factory\MeetingControllerFactory;
+use Meeting\Factory\MeetingRepositoryFactory;
+use Meeting\Factory\TemplateFactory;
+use Meeting\Repository\MeetingRepository;
+use Meeting\Template\Template;
 
 return [
     'factories' => [
@@ -35,9 +41,14 @@ return [
         IndexController::class => IndexControllerFactory::class,
         LecturerRepository::class => LecturerRepositoryFactory::class,
 
-        // Configurations liées auz films
+        // Configurations liées aux films
         FilmController::class => FilmControllerFactory::class,
         ShowFilmController::class => ShowFilmControllerFactory::class,
         FilmRepository::class => FilmRepositoryFactory::class,
+
+        // Configurations liées aux film
+        MeetingController::class => MeetingControllerFactory::class,
+        MeetingRepository::class => MeetingRepositoryFactory::class,
+        Template::class => TemplateFactory::class,
     ],
 ];
