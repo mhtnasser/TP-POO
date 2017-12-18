@@ -13,6 +13,7 @@ use DateTime;
 use Meeting\Collection\CollectionMeeting;
 use Meeting\Entity\Communaute;
 use Meeting\Entity\Meeting;
+use Meeting\Exception\MeetingNotFoundException;
 use PDO;
 
 class MeetingRepository
@@ -39,5 +40,17 @@ class MeetingRepository
 
         return new CollectionMeeting(...$meettings);
        //return $meettings;
+    }
+
+    public function GetOrganisateur($id_meeting)
+    {
+        $statement = $this->pdo->prepare('SELECT * FROM utilisateur as u INNER JOIN organisateur as o ON o.id_utilisateur = u.id WHERE o.id_meeting = :id_meeting');
+        $statement->execute([':id_meeting' => $id_meeting]);
+        $organisateurs = $statement->fetchAll();
+        if (!$organisateurs)
+        {
+            throw new MeetingNotFoundException();
+        }
+        return $organisateurs;
     }
 }

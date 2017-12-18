@@ -9,6 +9,7 @@ use Application\Controller\LecturerController;
 use Cinema\Controller\FilmController;
 use Cinema\Controller\ShowFilmController;
 use Meeting\Controller\MeetingController;
+use Meeting\Controller\ShowMeetingController;
 use Exception;
 
 use function explode;
@@ -54,10 +55,7 @@ final class ParseUriStaticNameHelper implements ParseUriHelper
         {
             $requestUriParams = explode('/', $requestUri);
             $_GET['meeting'] = urldecode($requestUriParams['2']);
-            dump(urldecode($requestUriParams['2']));
-            dump('ajouter le controller showMeetingController et le namespace');
-            die();
-            return "ShowMeetingController";
+            return ShowMeetingController::class;
         }
         return IndexController::class;
     }

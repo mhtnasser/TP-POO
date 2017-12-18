@@ -11,13 +11,13 @@ namespace Meeting\Factory;
 
 use Meeting\Controller\MeetingController;
 use Meeting\Repository\MeetingRepository;
-use Meeting\Template\Template;
 use Psr\Container\ContainerInterface;
+use Twig_Environment;
 
 class MeetingControllerFactory
 {
     public function __invoke(ContainerInterface $container) : MeetingController
     {
-        return new MeetingController($container->get(MeetingRepository::class), $container->get(Template::class));
+        return new MeetingController($container->get(MeetingRepository::class), $container->get(Twig_Environment::class));
     }
 }

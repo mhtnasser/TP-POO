@@ -21,9 +21,12 @@ use Cinema\Factory\FilmRepositoryFactory;
 use Cinema\Factory\ShowFilmControllerFactory;
 use Cinema\Repository\FilmRepository;
 use Meeting\Controller\MeetingController;
+use Meeting\Controller\ShowMeetingController;
 use Meeting\Factory\MeetingControllerFactory;
 use Meeting\Factory\MeetingRepositoryFactory;
+use Meeting\Factory\ShowMeetingControllerFactory;
 use Meeting\Factory\TemplateFactory;
+use Meeting\Factory\TwigEnvironmentFactory;
 use Meeting\Repository\MeetingRepository;
 use Meeting\Template\Template;
 
@@ -46,9 +49,14 @@ return [
         ShowFilmController::class => ShowFilmControllerFactory::class,
         FilmRepository::class => FilmRepositoryFactory::class,
 
-        // Configurations liées aux film
+        // Configurations liées aux Meeting
         MeetingController::class => MeetingControllerFactory::class,
         MeetingRepository::class => MeetingRepositoryFactory::class,
         Template::class => TemplateFactory::class,
+        Twig_Environment::class => TwigEnvironmentFactory::class,
+
+        // Configuration liées aux ShowMeeting
+        ShowMeetingController::class => ShowMeetingControllerFactory::class
+
     ],
 ];

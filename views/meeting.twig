@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+{% block title %} <title>Liste de tout les meetings</title>{% endblock %}
+{% block content %}
+<div class="row-fluid">
+    <ul class="thumbnails" style="list-style: none;">
+    {% for meeting in meetings %}
+        <li class="thumbnail col-md-3 offset1" style="margin-left: 10px;">
+            <h3>Titre : {{ meeting.getTitre }} </h3>
+            <p>Date de Debut : {{ meeting.getStartDate.format('d-m-Y H:i:s') }}
+            Date de fin : {{ meeting.getEndDate.format('d-m-Y H:i:s')  }}
+            Description : {{ meeting.getDesc }}
+            De le Communauté : {{ meeting.getCommunaute.getName }}</p>
+           <p><a class="btn btn-info" href="/meeting/{{ meeting.getId }}">Voir</a></p>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
