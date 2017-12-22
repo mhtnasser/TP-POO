@@ -25,7 +25,7 @@ final class Meeting
 
     private $communaute;
 
-    public function __construct(int $id,string $titre,string $desc,DateTime $startDate,DateTime $endDate, Communaute $communaute)
+    public function __construct(int $id,string $titre,string $desc,DateTime $startDate,DateTime $endDate, Communaute $communaute = null)
     {
 
         $this->id = $id;

@@ -1,18 +1,27 @@
 {% extends 'layout.twig' %}
+
 {% block title %} <title>Liste de tout les meetings</title>{% endblock %}
+
 {% block content %}
-<div class="row-fluid">
-    <ul class="thumbnails" style="list-style: none;">
+<div class="row">
     {% for meeting in meetings %}
-        <li class="thumbnail col-md-3 offset1" style="margin-left: 10px;">
-            <h3>Titre : {{ meeting.getTitre }} </h3>
-            <p>Date de Debut : {{ meeting.getStartDate.format('d-m-Y H:i:s') }}
-            Date de fin : {{ meeting.getEndDate.format('d-m-Y H:i:s')  }}
-            Description : {{ meeting.getDesc }}
-            De le Communauté : {{ meeting.getCommunaute.getName }}</p>
-           <p><a class="btn btn-info" href="/meeting/{{ meeting.getId }}">Voir</a></p>
-        </li>
+        <div class="col-md-4" style="top: 10px">
+            <div class="card">
+                <img src="../web/thumb_{{ meeting.getId }}.jpg" alt="" class="card-img-top">
+                <div class="card-header">
+                    <h4 class="card-titre"> {{ meeting.titre }}</h4>
+                </div>
+                <div class="card-block">
+                    <p class="card-text"> Description : {{ meeting.getDesc | excerpt(200) | nl2br}} </p>
+                </div>
+                <div class="card-footer text-muted">
+                    <small class="text-muted">De la Communauté : {{ meeting.getCommunaute.getName }}</small>
+                    <h6 class="card-subtitle">{{ meeting.getStartDate.format('d-m-Y') }}</h6>
+                    <h6 class="card-subtitle">{{ meeting.getEndDate.format('d-m-Y')  }}</h6>
+                   <p><a class="btn btn-info" href="/meeting/{{ meeting.getId }}">Voir</a></p>
+                </div>
+            </div>
+        </div>
     {% endfor %}
-    </ul>
 </div>
 {% endblock %}

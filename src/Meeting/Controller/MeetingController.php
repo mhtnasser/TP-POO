@@ -8,9 +8,7 @@
 
 namespace Meeting\Controller;
 
-
 use Meeting\Repository\MeetingRepository;
-use Meeting\Template\Template;
 use Twig_Environment;
 
 class MeetingController

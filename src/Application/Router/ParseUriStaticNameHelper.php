@@ -57,6 +57,7 @@ final class ParseUriStaticNameHelper implements ParseUriHelper
             $_GET['meeting'] = urldecode($requestUriParams['2']);
             return ShowMeetingController::class;
         }
-        return IndexController::class;
+        //return IndexController::class;
+        return MeetingController::class;
     }
 }
